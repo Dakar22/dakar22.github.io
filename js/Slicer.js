@@ -9,7 +9,6 @@ Slicer = function(scope) {
   this.slicerLabelDate = this.slicerLabel.querySelector('.slicer-label-date')
   this.slicerLabelValues = this.slicerLabel.querySelector('.slicer-label-values')
 
-
   let wrapper = this.onSlicerMouseLeave.bind(this)
   this.scope.graphView.canvasGraph.onmousemove = this.onSlicerMouseMove.bind(this)
   this.scope.graphView.canvasGraph.onmouseleave = wrapper
@@ -53,7 +52,7 @@ Slicer.prototype.init = function() {
 }
 
 Slicer.prototype.onSlicerMouseMove = function(e) {
-  let x = e.layerX               //todo: support touch events
+  let x = e.layerX
 
   this.slicer.style.display = 'block'
 

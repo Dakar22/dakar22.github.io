@@ -1,8 +1,3 @@
-
-
-//todo: pass scope as arg
-
-
 const MIN_THUMB_WIDTH = 60
 
 Inputs = function(scope) {
@@ -21,14 +16,10 @@ Inputs = function(scope) {
   this.moveWrapper = this.onThumbMove.bind(this)
   this.upWrapper = this.onThumbUp.bind(this)
 
-   this.scope.graphView.canvasGraph.onmousedown = this.onGraphDown.bind(this)
-   this.scope.graphView.canvasGraph.ontouchstart = this.onGraphDown.bind(this)
-   this.scope.scrollView.canvasScroller.onmousedown = this.onThumbDown.bind(this)
-   this.scope.scrollView.canvasScroller.ontouchstart = this.onThumbDown.bind(this)
-
-  this.scope.graphView.canvasGraph.addEventListener('gesturestart', (e) => {
-    alert('e')
-  })
+  this.scope.graphView.canvasGraph.onmousedown = this.onGraphDown.bind(this)
+  this.scope.graphView.canvasGraph.ontouchstart = this.onGraphDown.bind(this)
+  this.scope.scrollView.canvasScroller.onmousedown = this.onThumbDown.bind(this)
+  this.scope.scrollView.canvasScroller.ontouchstart = this.onThumbDown.bind(this)
 }
 
 Inputs.prototype.constructor = Inputs
@@ -47,17 +38,12 @@ Inputs.prototype.onThumbDown = function(e) {
 }
 
 Inputs.prototype.onMouseDown = function(e, willChangeStart, willChangeEnd) {
-
-  //e.preventDefault()
   this.touchMode = e.type == 'touchstart'
   this.initMouseX = this.getXPos(e)
 
   if (this.initMouseX === undefined) {
     return
   }
-
-  //e.preventDefault();
-  //e.stopPropagation();
 
   if (this.touchMode) {
     window.ontouchmove = this.moveWrapper
@@ -106,13 +92,13 @@ Inputs.prototype.onThumbMove = function(e) {
 
 Inputs.prototype.onThumbUp = function(e) {
   if (this.touchMode) {
-  	window.ontouchmove = undefined
-  	window.ontouchend = undefined
+    window.ontouchmove = undefined
+    window.ontouchend = undefined
     window.ontouchleave = undefined
     window.ontouchcancel = undefined
   } else {
-  	window.onmousemove = undefined
-  	window.onmouseup = undefined
+    window.onmousemove = undefined
+    window.onmouseup = undefined
   }
 }
 

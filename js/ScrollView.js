@@ -1,7 +1,7 @@
 ScrollView = function(scope) {
   this.scope = scope
 
-  this.maxVal = 0 //todo: better to move to root
+  this.maxVal = 0
   this.scaleX = 1
   this.scaleY = 1
 
@@ -27,8 +27,6 @@ ScrollView.prototype.draw = function() {
     gr.draw(this.ctxScroller, 0,  this.scope.count - 1, 0, ht, this.scaleX, scaleY)
   })
 }
-
-//todo: it is called from different place. check
 
 ScrollView.prototype.updateParams = function() {
   this.startScrollAnimTime = 0

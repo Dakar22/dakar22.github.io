@@ -3,22 +3,15 @@ GraphView = function(scope) {
 
   this.indexStart = 0
   this.indexEnd = 0
-
   this.interval
-
   this.intervalMaxVal = 0
 
   this.scaleX = 1
   this.scaleY = 1
 
   this.firstOffscreenColOffset = 0
-  this.firstOnscreenColOffset = 0
-
   this.inclIntStart = 0
   this.inclIntEnd = 0
-
-  this.exclIntStart = 0 //todo: seems, not used
-  this.exclIntEnd = 0
 
   this.canvasGraph = this.scope.rootView.querySelector('.graph-container canvas')
   this.ctxGraph = this.canvasGraph.getContext('2d')
@@ -48,8 +41,6 @@ GraphView.prototype.updateParams = function() {
 
   this.inclIntStart = Math.floor(this.indexStart)
   this.inclIntEnd = Math.ceil(this.indexEnd)
-  this.exclIntStart = Math.ceil(this.indexStart)
-  this.exclIntEnd = Math.floor(this.indexEnd)
 
   this.intervalMaxVal = 0
   this.scope.graphs.forEach(gr => {
@@ -63,7 +54,6 @@ GraphView.prototype.updateParams = function() {
   this.scaleX = wt / this.interval
 
   this.firstOffscreenColOffset = (this.inclIntStart - this.indexStart) * this.scaleX
-  this.firstOnscreenColOffset = this.firstOffscreenColOffset + this.scaleX
 }
 
 GraphView.prototype.animate = function(frameTime) {
@@ -88,13 +78,10 @@ GraphView.prototype.toScreenY = function(graphY) {
   return GRAPH_HEIGHT - graphY * this.scaleY
 }
 
-
 GraphView.prototype.fromScreenX = function(screenY) {
-  //const i = Math.round( this.scope.graphView.indexStart + (mouseX / windowWidth) * ( this.scope.graphView.indexEnd -  this.scope.graphView.indexStart))
   return screenY / this.scaleX + this.indexStart
 }
 
 GraphView.prototype.fromScreenY = function(screenY) {
-  //const i = Math.round( this.scope.graphView.indexStart + (mouseX / windowWidth) * ( this.scope.graphView.indexEnd -  this.scope.graphView.indexStart))
   return (GRAPH_HEIGHT - screenY) / this.scaleX
 }

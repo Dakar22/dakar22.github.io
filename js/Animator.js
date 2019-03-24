@@ -1,4 +1,3 @@
-
 Animator = function(scope) {
   this.scope = scope
 
@@ -10,7 +9,6 @@ Animator = function(scope) {
 
   this._needUpdateGraph = false
   this._needUpdateScroll = false
-
   this.prevFrameWasUpdated = false
 }
 
@@ -37,7 +35,6 @@ Animator.prototype.startAnim = function() {
   }
 }
 
-
 Animator.prototype.enterFrame = function() {
   const time = Date.now()
   const delta = time - this.prevFrameTime
@@ -49,9 +46,7 @@ Animator.prototype.enterFrame = function() {
   }
 }
 
-
 Animator.prototype.animate = function(frameTime) {
-
   let needUpdate = this._needUpdateGraph
   let needUpdateScroller = this._needUpdateScroll
 

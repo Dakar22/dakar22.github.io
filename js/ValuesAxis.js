@@ -6,10 +6,9 @@ ValuesAxis = function(scope) {
     alpha: 1,
     vals: [1, 2, 3, 4, 5]
   }
-
   this.newSet
 
-  this.currentZoom = 1 //todo: better to move to GraphView
+  this.currentZoom = 1
 
   this.startAnimTime
   this.startAnimStep
@@ -20,11 +19,11 @@ ValuesAxis.prototype.constructor = ValuesAxis
 
 
 ValuesAxis.prototype.draw = function() {
-   this.scope.graphView.ctxGraph.font = FONT
-   this.scope.graphView.ctxGraph.fillStyle = TEXT_COLOR
-   this.scope.graphView.ctxGraph.lineWidth = 0.25 / pixelRatio
-   this.scope.graphView.ctxGraph.strokeStyle = TEXT_COLOR
-   this.scope.graphView.ctxGraph.textAlign = 'left'
+  this.scope.graphView.ctxGraph.font = FONT
+  this.scope.graphView.ctxGraph.fillStyle = TEXT_COLOR
+  this.scope.graphView.ctxGraph.lineWidth = 0.25 / pixelRatio
+  this.scope.graphView.ctxGraph.strokeStyle = TEXT_COLOR
+  this.scope.graphView.ctxGraph.textAlign = 'left'
 
   let pixStep
 
@@ -40,8 +39,8 @@ ValuesAxis.prototype.draw = function() {
 }
 
 ValuesAxis.prototype.drawVals = function(vals, alpha, pixelStep) {
-   this.scope.graphView.ctxGraph.beginPath()
-   this.scope.graphView.ctxGraph.globalAlpha = alpha
+  this.scope.graphView.ctxGraph.beginPath()
+  this.scope.graphView.ctxGraph.globalAlpha = alpha
 
   let yPos = GRAPH_HEIGHT
 
@@ -57,8 +56,8 @@ ValuesAxis.prototype.drawVals = function(vals, alpha, pixelStep) {
     }
   }
 
-   this.scope.graphView.ctxGraph.stroke()
-   this.scope.graphView.ctxGraph.globalAlpha = 1
+  this.scope.graphView.ctxGraph.stroke()
+  this.scope.graphView.ctxGraph.globalAlpha = 1
 }
 
 ValuesAxis.prototype.updateParams = function() {

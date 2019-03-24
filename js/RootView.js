@@ -75,8 +75,6 @@ RootView.prototype.checkboxChanged = function(index, value) {
   this.updateParams()
 }
 
-
-
 RootView.prototype.updateParams = function() {
   this.animator.needUpdateGraph()
 
@@ -84,7 +82,6 @@ RootView.prototype.updateParams = function() {
   this.datesAxis.updateParams()
   this.valuesAxis.updateParams()
 }
-
 
 RootView.prototype.resize = function() {
   resizeCanvas(this.graphView.canvasGraph, this.graphView.ctxGraph, windowWidth, GRAPH_HEIGHT + GRAPH_DATES_HEIGHT)

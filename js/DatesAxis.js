@@ -16,9 +16,9 @@ DatesAxis = function(scope) {
 DatesAxis.prototype.constructor = DatesAxis
 
 DatesAxis.prototype.draw = function() {
-   this.scope.graphView.ctxGraph.font = FONT
-   this.scope.graphView.ctxGraph.fillStyle = TEXT_COLOR
-   this.scope.graphView.ctxGraph.textAlign = 'center'
+  this.scope.graphView.ctxGraph.font = FONT
+  this.scope.graphView.ctxGraph.fillStyle = TEXT_COLOR
+  this.scope.graphView.ctxGraph.textAlign = 'center'
 
   if (this.alpha > MIN_VISIBLE_ALPHA) {
     this.scope.graphView.ctxGraph.globalAlpha = this.alpha
@@ -71,7 +71,7 @@ DatesAxis.prototype.updateParams = function() {
   let mod = this.scope.graphView.inclIntStart % this.drawStep
   let startInd = this.scope.graphView.inclIntStart
   if (mod) {
-      startInd += (this.drawStep - mod)
+    startInd += (this.drawStep - mod)
   }
 
   let colWidth = this.scope.graphView.scaleX
