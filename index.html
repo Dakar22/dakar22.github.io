@@ -1,0 +1,90 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- templates for populated objects -->
+
+  <template id="slicer-item-value">
+    <div class="slicer-label-value">
+      <p style="font-size: 14px"></p>
+      <span></span>
+    </div>
+  </template>
+
+  <template id='material-checkbox'>
+    <label class='material-checkbox night'>
+      <input type="checkbox">
+      <div></div>
+      <span></span>
+    </label>
+  </template>
+
+  <template id="view-root">
+    <div class="container">
+
+      <div class="graph-container">
+        <div class="no-data">Nothing to display</div>
+
+        <canvas></canvas>
+
+        <div class="slicer" >
+          <div class="slicer-label night">
+            <div class="slicer-label-date"></div>
+            <div class="slicer-label-values"></div>
+          </div>
+        </div>
+
+        <div class="upper night"></div>
+      </div>
+
+      <div class="scroll-container">
+        <canvas></canvas>
+        <div class="thumb"></div>
+      </div>
+
+      <div class="checkboxes-container"></div>
+    </div>
+  </template>
+
+</head>
+
+<body class="night">
+
+  <div class="header">
+    Followers
+
+    <div class="day-night-toggle-box">
+      <input id="day-night-toggle" type="checkbox"/>
+      <label for="day-night-toggle" class="day-night-toggle-label"></label>
+    </div>
+  </div>
+
+  <div class="views-container"></div>
+
+  <script src="js/DatesAxis.js"></script>
+  <script src="js/ValuesAxis.js"></script>
+  <script src="js/Graph.js"></script>
+  <script src="js/GraphView.js"></script>
+  <script src="js/ScrollView.js"></script>
+  <script src="js/Inputs.js"></script>
+  <script src="js/Slicer.js"></script>
+  <script src="js/Animator.js"></script>
+  <script src="js/RootView.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
