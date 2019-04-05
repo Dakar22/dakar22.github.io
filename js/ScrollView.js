@@ -44,6 +44,7 @@ ScrollView.prototype.animate = function(frameTime) {
   if (this.currentScrollerMax != this.maxVal) {
     this.startScrollAnimTime += frameTime
     let tt = Math.min(this.startScrollAnimTime / 350, 1)
+    tt = (--tt)*tt*tt+1 // cubic out
     this.currentScrollerMax = this.startScrollAnimValue + tt * (this.maxVal - this.startScrollAnimValue)
     this.scaleY = SCROLLER_HEIGHT / this.currentScrollerMax
     needAnim = true

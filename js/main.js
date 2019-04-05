@@ -19,7 +19,7 @@ const TEXT_COLOR = '#aaa'
 const FONT = '12px sans-serif'
 
 const VERT_STEPS_COUNT = 5
-const VERT_PIX_STEP = 72
+const VERT_PIX_STEP = 60
 
 const GRAPH_DATES_HEIGHT = 20
 const GRAPH_HEIGHT = VERT_PIX_STEP * (VERT_STEPS_COUNT + 0.5) // 5 lines + 1/4 atop + 1/4 free
@@ -28,6 +28,7 @@ const SCROLLER_HEIGHT = 60
 const MIN_VISIBLE_ALPHA = 0.03
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const DAYS_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
 let rootViewTemplate
 let viewsContainer
@@ -89,10 +90,11 @@ function dayNightChanged() {
 // utils ************************************************************************************************
 
 //todo: compare speed of 'getDateStr()' and 'dateStart.toLocaleString('en-us', { month: 'short', day: 'numeric' })'
-function getDateStr(time) {
+function getDateStr(time, dayOfWeek) {
   const date = new Date(time);
-  const mon = MONTHS[date.getMonth()];
-  return mon + ' ' + date.getDate()
+  const mon = MONTHS[date.getMonth()]
+  const day = dayOfWeek ? (DAYS_OF_WEEK[date.getDay()] + ', ') : ''
+  return day + mon + ' ' + date.getDate()
 }
 
 function resizeCanvas(canvas, ctx, wt, ht) {

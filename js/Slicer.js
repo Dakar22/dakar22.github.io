@@ -114,5 +114,5 @@ Slicer.prototype.getNearest = function(mouseX) {
 }
 
 Slicer.prototype.getDateAtIndex = function(index) {
-  return new Date(this.scope.times[index]).toLocaleString('en-us', { weekday:'short', month: 'short', day: 'numeric' })
+  return getDateStr(this.scope.times[index], true)
 }

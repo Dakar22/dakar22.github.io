@@ -46,7 +46,7 @@ ValuesAxis.prototype.drawVals = function(vals, alpha, pixelStep) {
 
   for (let i = 0; i<= 5; i++) {
     if (i) {
-      this.scope.graphView.ctxGraph.fillText(vals[i - 1], 4, (yPos | 0) - 8)
+      this.scope.graphView.ctxGraph.fillText(vals[i - 1], 4, yPos - 8)
     }
     this.scope.graphView.ctxGraph.moveTo(0, yPos)
     this.scope.graphView.ctxGraph.lineTo(windowWidth, yPos)
@@ -98,7 +98,8 @@ ValuesAxis.prototype.animate = function(frameTime) {
 
   if (this.newSet.step != this.currentZoom) {
     this.startAnimTime += frameTime
-    const frac = Math.min(this.startAnimTime / 350, 1)
+    let frac = Math.min(this.startAnimTime / 350, 1)
+    frac = (--frac)*frac*frac+1 // cubic out
 
     this.prevSet.alpha = Math.min(this.prevSet.alpha, 1 - frac)
     this.newSet.alpha = frac
